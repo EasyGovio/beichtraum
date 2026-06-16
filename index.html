@@ -449,6 +449,7 @@ var T = {
     modTitle: "Moderator / Freiwilliger Zuhörer werden",
     modDesc: "Studierst du Psychologie, Soziologie oder arbeitest du in der sozialen Arbeit? Als freiwilliger Moderator bei Beichtraum trägst du dazu bei, dass Menschen Lasten leichter tragen.",
     modRef: '"Freiwillige Moderatoren erhalten ein offizielles Referenzschreiben von AskMeAI Teknoloji Ltd. Şti."',
+    chips: ["🎓 Psychologiestudent","👥 Soziologie-Praktikant","🤲 Spirituelle Beratung","✍️ Sozialarbeit","🌍 Öffentlichkeitsarbeit"],
     modBtn: "Bewerbungsformular →",
     fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich'
   },
@@ -471,6 +472,7 @@ var T = {
     modTitle: "Moderatör / Gönüllü Dinleyici Ol",
     modDesc: "Psikoloji, sosyoloji, sosyal hizmet veya manevi danışmanlık alanında mısınız? Beichtraum'da gönüllü moderatör olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.",
     modRef: '"Gönüllü moderatörlere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."',
+    chips: ["🎓 Psikoloji Öğrencisi","👥 Sosyoloji Stajyeri","🤲 Manevi Danışman","✍️ Sosyal Hizmet Uzmanı","🌍 Halkla İlişkiler"],
     modBtn: "Başvuru Formu →",
     fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu'
   },
@@ -493,6 +495,7 @@ var T = {
     modTitle: "Become a Moderator / Volunteer Listener",
     modDesc: "Are you studying psychology, sociology, or working in social services? As a volunteer moderator at Beichtraum, you help people carry their burdens a little lighter.",
     modRef: '"Volunteer moderators receive an official reference letter from AskMeAI Teknoloji Ltd. Şti."',
+    chips: ["🎓 Psychology Student","👥 Sociology Intern","🤲 Spiritual Counselor","✍️ Social Worker","🌍 Public Relations"],
     modBtn: "Application Form →",
     fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · All content is moderated · Privacy-friendly'
   }
@@ -522,6 +525,9 @@ function setLang(lang) {
   document.getElementById('r-btn').innerText = t.rBtn;
   document.getElementById('r-note').innerHTML = t.rNote;
   document.getElementById('mod-title').innerText = t.modTitle;
+  // Chip'leri güncelle
+  var chipEls = document.querySelectorAll('.trigger-chips .chip');
+  if(chipEls && t.chips) { for(var ci=0;ci<chipEls.length;ci++) { if(t.chips[ci]) chipEls[ci].innerText = t.chips[ci]; } }
   document.getElementById('mod-desc').innerText = t.modDesc;
   document.getElementById('mod-ref').innerText = t.modRef;
   document.getElementById('mod-btn').innerText = t.modBtn;
