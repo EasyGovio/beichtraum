@@ -51,6 +51,17 @@
       color: var(--gold); text-decoration: none; letter-spacing: 0.06em;
     }
 
+    .nav-left { display: flex; align-items: center; gap: 1.5rem; }
+
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-back:hover { color: var(--gold); }
+
     .lang-bar { display: flex; gap: 0.4rem; }
     .lang-btn {
       background: none; border: 1px solid rgba(255,255,255,0.12);
@@ -312,15 +323,18 @@
 <body class="lang-de" id="body-root">
 
 <nav>
-  <a href="#" class="nav-logo">Beichtraum</a>
+  <div class="nav-left">
+    <a href="#" class="nav-logo">Beichtraum</a>
+    <a href="#" class="nav-back" id="nav-back">← Startseite</a>
+  </div>
   <div class="lang-bar">
     <button class="lang-btn active" onclick="setLang('de')" id="btn-de">DE</button>
     <button class="lang-btn" onclick="setLang('tr')" id="btn-tr">TR</button>
     <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
   </div>
 </nav>
-<div id="manifesto-banner" style="background:rgba(155,142,196,0.1);border-bottom:1px solid rgba(155,142,196,0.2);padding:0.5rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.72);position:relative;z-index:98;"><span id="manifesto-text"></span></div>
 
+<div id="manifesto-banner" style="background:rgba(155,142,196,0.1);border-bottom:1px solid rgba(155,142,196,0.2);padding:0.5rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.72);position:relative;z-index:98;"><span id="manifesto-text"></span></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -360,11 +374,9 @@
   </div>
 </section>
 
-
 <!-- BLOG YAZILARI -->
 <div style="max-width:740px;margin:0 auto;padding:0 2rem 4rem;">
-  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lav);display:block;margin-bottom:1.5rem;" id="blog-label">Aus dem Blog</span><span data-lang-inline="tr">Blogdan</span><span data-lang-inline="en">From the Blog</span>
-  </span>
+  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lav);display:block;margin-bottom:1.5rem;" id="blog-label">Aus dem Blog</span>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
 
     <a href="blog/sabir-tasi-kirilan-sirlar.html" style="display:block;background:var(--night2);border:1px solid var(--border);padding:1.5rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--lav)'" onmouseout="this.style.borderColor='var(--border)'">
@@ -468,25 +480,36 @@
 </footer>
 
 <script>
-var _banner = {"de": ""Tränen haben keine Nationalität. Lachen hat keine Religion." <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifest lesen →</a>", "tr": ""Gözyaşının milliyeti yok. Kahkahanın dini yok." <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifestoyu oku →</a>", "en": ""Tears have no nationality. Laughter has no religion." <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Read the manifesto →</a>"};
-  var _blogT = {
-    de: ["Aus dem Blog","Persönlicher Essay","Der Geduldstein, zerbrochene Geheimnisse","Lesen →","Anatolische Allegorie","Vier Tore, Ein Garten"],
-    tr: ["Blogdan","Kişisel Yazı","Sabır Taşı, Kırılan Sırlar","Devamı →","Anadolu Alegorisi","Dört Kapı, Bir Bahçe"],
-    en: ["From the Blog","Personal Essay","The Patience Stone, Broken Secrets","Read →","Anatolian Allegory","Four Gates, One Garden"]
-  };
-  function _updateBlog(lang) {
-    var t = _blogT[lang]; if (!t) return;
-    var ids = ["blog-label","blog-cat-1","blog-title-1","blog-read-1","blog-cat-2","blog-title-2","blog-read-2"];
-    // blog-read-2 aynı read değeri
-    var vals = [t[0],t[1],t[2],t[3],t[4],t[5],t[3]];
-    ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.innerText=vals[i];});
-  }
+var _banner = {
+  de: '“Tränen haben keine Nationalität. Lachen hat keine Religion.” <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#9B8EC4;text-decoration:none;font-style:normal;font-family:\'DM Mono\',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifest lesen →</a>',
+  tr: '“Gözyaşının milliyeti yok. Kahkahanın dini yok.” <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#9B8EC4;text-decoration:none;font-style:normal;font-family:\'DM Mono\',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifestoyu oku →</a>',
+  en: '“Tears have no nationality. Laughter has no religion.” <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#9B8EC4;text-decoration:none;font-style:normal;font-family:\'DM Mono\',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;">Read the manifesto →</a>'
+};
+
+var _blogT = {
+  de: ["Aus dem Blog","Persönlicher Essay","Der Geduldstein, zerbrochene Geheimnisse","Lesen →","Anatolische Allegorie","Vier Tore, Ein Garten"],
+  tr: ["Blogdan","Kişisel Yazı","Sabır Taşı, Kırılan Sırlar","Devamı →","Anadolu Alegorisi","Dört Kapı, Bir Bahçe"],
+  en: ["From the Blog","Personal Essay","The Patience Stone, Broken Secrets","Read →","Anatolian Allegory","Four Gates, One Garden"]
+};
+
+function _updateBlog(lang) {
+  var t = _blogT[lang]; if (!t) return;
+  var ids = ["blog-label","blog-cat-1","blog-title-1","blog-read-1","blog-cat-2","blog-title-2","blog-read-2"];
+  var vals = [t[0],t[1],t[2],t[3],t[4],t[5],t[3]];
+  ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.innerText=vals[i];});
+}
+
+var _bl = {
+  de: "← Startseite",
+  tr: "← Ana Sayfa",
+  en: "← Home"
+};
 
 var _ft = {
-    de: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Impressum &amp; Datenschutz</a> \u00b7 Alle Inhalte werden moderiert · Datenschutzfreundlich",
-    tr: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">K\u00fcnye &amp; Gizlilik</a> \u00b7 Tüm içerikler moderatör onayından geçer · Gizlilik dostu",
-    en: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Imprint &amp; Privacy</a> \u00b7 All content is moderated · Privacy-friendly"
-  };
+  de: '© 2026 PACDI · <a href="https://beichtraum.de/legal.html" style="color:inherit;opacity:0.7;">Impressum &amp; Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich',
+  tr: '© 2026 PACDI · <a href="https://beichtraum.de/legal.html" style="color:inherit;opacity:0.7;">Künye &amp; Gizlilik</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu',
+  en: '© 2026 PACDI · <a href="https://beichtraum.de/legal.html" style="color:inherit;opacity:0.7;">Imprint &amp; Privacy</a> · All content is moderated · Privacy-friendly'
+};
 
 var T = {
   de: {
@@ -562,20 +585,23 @@ var T = {
 
 var currentLang = 'de';
 
-
-var _pageT = {
-  de: {"blog-label": "Aus dem Blog", "blog-cat-1": "Persönlicher Essay", "blog-title-1": "Der Geduldstein, zerbrochene Geheimnisse", "blog-read-1": "Lesen →", "blog-cat-2": "Anatolische Allegorie", "blog-title-2": "Vier Tore, Ein Garten", "blog-read-2": "Lesen →"},
-  tr: {"blog-label": "Blogdan", "blog-cat-1": "Kişisel Yazı", "blog-title-1": "Sabır Taşı, Kırılan Sırlar", "blog-read-1": "Devamı →", "blog-cat-2": "Anadolu Alegorisi", "blog-title-2": "Dört Kapı, Bir Bahçe", "blog-read-2": "Devamı →"},
-  en: {"blog-label": "From the Blog", "blog-cat-1": "Personal Essay", "blog-title-1": "The Patience Stone, Broken Secrets", "blog-read-1": "Read →", "blog-cat-2": "Anatolian Allegory", "blog-title-2": "Four Gates, One Garden", "blog-read-2": "Read →"}
-};
 function setLang(lang) {
   currentLang = lang;
-  var br=document.getElementById("body-root"); if(br) br.className="lang-"+lang;
-  var mt=document.getElementById("manifesto-text"); if(mt) mt.innerHTML=(_banner&&_banner[lang])||"";
-  var mt=document.getElementById("manifesto-text"); if(mt&&_banner) mt.innerHTML=_banner[lang]||_banner.de;
-  var nb=document.getElementById("nav-back"); if(nb) nb.innerText = _bl[lang]||_bl.de;
-    _updateBlog(lang);
+  var br = document.getElementById('body-root');
+  if (br) br.className = 'lang-' + lang;
+  document.getElementById('html-root').lang = lang;
+
+  var mt = document.getElementById('manifesto-text');
+  if (mt && _banner) mt.innerHTML = _banner[lang] || _banner.de;
+
+  var nb = document.getElementById('nav-back');
+  if (nb) nb.innerText = _bl[lang] || _bl.de;
+
+  _updateBlog(lang);
+
   var t = T[lang];
+  if (!t) return;
+
   document.getElementById('h-eyebrow').innerText = t.eyebrow;
   document.getElementById('h-title').innerHTML = t.title;
   document.getElementById('h-quote').innerText = t.quote;
@@ -586,7 +612,10 @@ function setLang(lang) {
   document.getElementById('a-body').innerHTML = t.aBody;
   document.getElementById('cat-title').innerText = t.catTitle;
   var cats = ['cat-1','cat-2','cat-3','cat-4','cat-5'];
-  for(var i=0;i<cats.length;i++) document.getElementById(cats[i]).innerText = t.cats[i];
+  for (var i = 0; i < cats.length; i++) {
+    var el = document.getElementById(cats[i]);
+    if (el) el.innerText = t.cats[i];
+  }
   document.getElementById('r-title').innerText = t.rTitle;
   document.getElementById('r-sub').innerText = t.rSub;
   document.getElementById('r-nick').placeholder = t.rNick;
@@ -595,24 +624,27 @@ function setLang(lang) {
   document.getElementById('r-btn').innerText = t.rBtn;
   document.getElementById('r-note').innerHTML = t.rNote;
   document.getElementById('mod-title').innerText = t.modTitle;
-  // Chip'leri güncelle
   var chipEls = document.querySelectorAll('.trigger-chips .chip');
-  if(chipEls && t.chips) { for(var ci=0;ci<chipEls.length;ci++) { if(t.chips[ci]) chipEls[ci].innerText = t.chips[ci]; } }
+  if (chipEls && t.chips) {
+    for (var ci = 0; ci < chipEls.length; ci++) {
+      if (t.chips[ci]) chipEls[ci].innerText = t.chips[ci];
+    }
+  }
   document.getElementById('mod-desc').innerText = t.modDesc;
   document.getElementById('mod-ref').innerText = t.modRef;
   document.getElementById('mod-btn').innerText = t.modBtn;
   document.getElementById('f-note').innerHTML = t.fNote;
-  ['btn-de','btn-tr','btn-en'].forEach(function(id){
-    document.getElementById(id).classList.remove('active');
+
+  ['btn-de','btn-tr','btn-en'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.toggle('active', id === 'btn-' + lang);
   });
-  document.getElementById('btn-'+lang).classList.add('active');
   document.documentElement.lang = lang;
 }
 
 function submitRegister(e) {
   e.preventDefault();
   var nick = document.getElementById('r-nick').value.trim();
-  var email = document.getElementById('r-email').value.trim();
   var msgs = {
     de: 'Vielen Dank, ' + nick + '! Bitte bestätige deine E-Mail-Adresse.',
     tr: 'Teşekkürler, ' + nick + '! Lütfen e-postanı onayla.',
@@ -621,13 +653,11 @@ function submitRegister(e) {
   alert(msgs[currentLang]);
 }
 
-// Detect language
 var ul = (navigator.language || 'de').toLowerCase();
-if(ul.startsWith('tr')) setLang('tr');
-else if(ul.startsWith('en')) setLang('en');
+if (ul.startsWith('tr')) setLang('tr');
+else if (ul.startsWith('en')) setLang('en');
 else setLang('de');
 </script>
-
 
 <script>
 (function(){
