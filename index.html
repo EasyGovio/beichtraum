@@ -363,8 +363,7 @@
 
 <!-- BLOG YAZILARI -->
 <div style="max-width:740px;margin:0 auto;padding:0 2rem 4rem;">
-  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lav);display:block;margin-bottom:1.5rem;" id="blog-label">Aus dem Blog</span><span data-lang-inline="tr">Blogdan</span><span data-lang-inline="en">From the Blog</span>
-  </span>
+  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lav);display:block;margin-bottom:1.5rem;" id="blog-label">Aus dem Blog</span>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
 
     <a href="blog/sabir-tasi-kirilan-sirlar.html" style="display:block;background:var(--night2);border:1px solid var(--border);padding:1.5rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--lav)'" onmouseout="this.style.borderColor='var(--border)'">
@@ -474,94 +473,18 @@ var _banner = {
   en: 'Tears have no nationality. Laughter has no religion. <a href="https://geduldstein.de/blog/neden-olmasin.html" style="color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;margin-left:0.8rem;">Manifesto &#x2192;</a>'
 };
   var _blogT = {
-    de: ["Aus dem Blog","Persönlicher Essay","Der Geduldstein, zerbrochene Geheimnisse","Lesen →","Anatolische Allegorie","Vier Tore, Ein Garten"],
-    tr: ["Blogdan","Kişisel Yazı","Sabır Taşı, Kırılan Sırlar","Devamı →","Anadolu Alegorisi","Dört Kapı, Bir Bahçe"],
-    en: ["From the Blog","Personal Essay","The Patience Stone, Broken Secrets","Read →","Anatolian Allegory","Four Gates, One Garden"]
-  };
+  de: {label:"Aus dem Blog", cat1:"Persönlicher Essay", t1:"Der Geduldstein, zerbrochene Geheimnisse", cat2:"Anatolische Allegorie", t2:"Vier Tore, Ein Garten", read:"Lesen →"},
+  tr: {label:"Blogdan", cat1:"Kişisel Yazı", t1:"Sabır Taşı, Kırılan Sırlar", cat2:"Anadolu Alegorisi", t2:"Dört Kapı, Bir Bahçe", read:"Devamı →"},
+  en: {label:"From the Blog", cat1:"Personal Essay", t1:"The Patience Stone, Broken Secrets", cat2:"Anatolian Allegory", t2:"Four Gates, One Garden", read:"Read →"}
+};
   function _updateBlog(lang) {
-    var t = _blogT[lang]; if (!t) return;
-    var ids = ["blog-label","blog-cat-1","blog-title-1","blog-read-1","blog-cat-2","blog-title-2","blog-read-2"];
-    // blog-read-2 aynı read değeri
-    var vals = [t[0],t[1],t[2],t[3],t[4],t[5],t[3]];
-    ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.innerText=vals[i];});
-  }
-
-var _ft = {
-    de: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Impressum &amp; Datenschutz</a> \u00b7 Alle Inhalte werden moderiert · Datenschutzfreundlich",
-    tr: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">K\u00fcnye &amp; Gizlilik</a> \u00b7 Tüm içerikler moderatör onayından geçer · Gizlilik dostu",
-    en: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Imprint &amp; Privacy</a> \u00b7 All content is moderated · Privacy-friendly"
+  var t = _blogT[lang]; if (!t) return;
+  var ids = {
+    "blog-label": t.label,
+    "blog-cat-1": t.cat1, "blog-title-1": t.t1, "blog-read-1": t.read,
+    "blog-cat-2": t.cat2, "blog-title-2": t.t2, "blog-read-2": t.read
   };
-
-var T = {
-  de: {
-    eyebrow: "Ein Ort. Kein Urteil. Nur Stille.",
-    title: "Beich<em>traum</em>",
-    quote: '"Was lange in dir schweigt, sucht einen Ort, wo es sprechen darf."',
-    btnShare: "Teilen & Loslassen",
-    btnMod: "Moderator werden",
-    aLabel: "Arınma · Reinigung · Purification",
-    aTitle: "Das Beichten: Eine universelle menschliche Praxis",
-    aBody: '<p>In nahezu jeder Kultur und Religion der Welt gibt es einen Ort, an dem das Unausgesprochene einen Raum bekommt. Das Beichten ist kein religiöses Privileg — es ist ein urmenschliches Bedürfnis.</p><div class="pull-quote">"Der Mensch ist das einzige Wesen, das trägt — und das einzige, das loslassen kann."</div><p>Im Christentum ist die Beichte ein Sakrament. Im Islam gibt es die <strong>Tawbah</strong> — die aufrichtige Umkehr. Im Judentum ist <strong>Teshuvah</strong> die Rückkehr zu sich selbst. In ostasiatischen Kulturen sprechen Menschen mit Ahnen und der Natur.</p><p>Was all diese Praktiken verbindet: Das <strong>Benennen</strong> heilt — nicht das Vergessen.</p><p><strong>Beichtraum</strong> ist kein religiöser Ort. Er ist ein menschlicher.</p>',
-    catTitle: "Womit trägst du dich?",
-    cats: ["Reinigung","Reue","Vergebung","Abschied","Frei"],
-    rTitle: "Teile, was du lange trägst",
-    rSub: "Wähle einen Namen. Kein echter. Schreib, was du brauchst.",
-    rNick: "Nickname", rEmail: "E-Mail (bleibt privat)", rPass: "Passwort",
-    rBtn: "Konto erstellen",
-    rNote: 'Deine E-Mail bleibt unsichtbar. Nach der Bestätigung kannst du teilen.<br>Alle Beiträge werden vor der Veröffentlichung moderiert.',
-    modTitle: "Moderator / Freiwilliger Zuhörer werden",
-    modDesc: "Studierst du Psychologie, Soziologie oder arbeitest du in der sozialen Arbeit? Als freiwilliger Moderator bei Beichtraum trägst du dazu bei, dass Menschen Lasten leichter tragen.",
-    modRef: '"Freiwillige Moderatoren erhalten ein offizielles Referenzschreiben von AskMeAI Teknoloji Ltd. Şti."',
-    chips: ["🎓 Psychologiestudent","👥 Soziologie-Praktikant","🤲 Spirituelle Beratung","✍️ Sozialarbeit","🌍 Öffentlichkeitsarbeit"],
-    modBtn: "Bewerbungsformular →",
-    fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Alle Inhalte werden moderiert · Datenschutzfreundlich'
-  },
-  tr: {
-    eyebrow: "Bir yer. Yargısız. Sessizce.",
-    title: "Beich<em>traum</em>",
-    quote: '"Uzun süre içinde taşıdığın şey, konuşabileceği bir yer arar."',
-    btnShare: "Paylaş & Bırak",
-    btnMod: "Moderatör Ol",
-    aLabel: "Arınma · Reinigung · Purification",
-    aTitle: "İtiraf: Evrensel Bir İnsan Pratiği",
-    aBody: '<p>Dünyanın neredeyse her kültüründe ve dininde, söylenmeyenin bir alan bulduğu bir yer vardır. İtiraf etmek — baskı yapanı, utandıranı, ağırlaştıranı dile getirmek — dini bir buluş değildir. İnsan doğasının en derin ihtiyaçlarından biridir.</p><div class="pull-quote">"İnsan, yük taşıyan tek varlıktır — ve onu bırakabilen tek varlık."</div><p>Hristiyanlıkta günah çıkarma bir sakrament: Tanrı huzurunda söylenen ve affedilen sözler. İslam\'da <strong>Tevbe</strong> vardır — tanığa gerek duymayan samimi dönüş. Yahudilikte <strong>Teshuvah</strong> kendine ve ötekine dönüştür. Doğu Asya kültürlerinde insanlar atalarla, doğayla, sessizliğin kendisiyle konuşur.</p><p>Tüm bu pratiklerin ortak noktası: <strong>Adlandırmak</strong> iyileştirir — unutmak değil.</p><p><strong>Beichtraum</strong> dini bir yer değil. İnsani bir yerdir.</p>',
-    catTitle: "Neyi taşıyorsun?",
-    cats: ["Arınma","Pişmanlık","Af Dileme","Vedalaşma","Serbest"],
-    rTitle: "Uzun süredir taşıdığını paylaş",
-    rSub: "Bir takma ad seç. Gerçek değil. İhtiyacın olanı yaz. Yargı yok — sadece okuyan sessiz gözler.",
-    rNick: "Nick / Takma Ad", rEmail: "E-posta (gizli kalır)", rPass: "Şifre",
-    rBtn: "Hesap Oluştur",
-    rNote: 'E-posta adresiniz hiçbir zaman görünmez. Onay maili gelecek, ardından paylaşabilirsiniz.<br>Tüm paylaşımlar moderatör onayından sonra yayınlanır.',
-    modTitle: "Moderatör / Gönüllü Dinleyici Ol",
-    modDesc: "Psikoloji, sosyoloji, sosyal hizmet veya manevi danışmanlık alanında mısınız? Beichtraum'da gönüllü moderatör olarak insanların yükünü hafifletmelerine katkıda bulunabilirsiniz.",
-    modRef: '"Gönüllü moderatörlere AskMeAI Teknoloji Ltd. Şti. imzalı resmi referans mektubu sunulmaktadır."',
-    chips: ["🎓 Psikoloji Öğrencisi","👥 Sosyoloji Stajyeri","🤲 Manevi Danışman","✍️ Sosyal Hizmet Uzmanı","🌍 Halkla İlişkiler"],
-    modBtn: "Başvuru Formu →",
-    fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · Tüm içerikler moderatör onayından geçer · Gizlilik dostu'
-  },
-  en: {
-    eyebrow: "A place. No judgment. Only stillness.",
-    title: "Beich<em>traum</em>",
-    quote: '"What has long been silent within you is searching for a place where it may speak."',
-    btnShare: "Share & Let Go",
-    btnMod: "Become a Moderator",
-    aLabel: "Arınma · Reinigung · Purification",
-    aTitle: "Confession: A Universal Human Practice",
-    aBody: '<p>In almost every culture and religion in the world, there is a place where the unspoken is given space. Confessing — voicing what presses, what shames, what burdens — is not a religious invention. It is a deeply human need.</p><div class="pull-quote">"The human is the only being that carries — and the only one that can let go."</div><p>In Christianity, confession is a sacrament: words spoken before God and forgiven. In Islam, there is <strong>Tawbah</strong> — sincere repentance that needs no witness but God. In Judaism, <strong>Teshuvah</strong> is a return to oneself and to others. In East Asian cultures, people speak with ancestors, with nature, with silence itself.</p><p>What all these practices share: <strong>Naming</strong> heals — not forgetting.</p><p><strong>Beichtraum</strong> is not a religious place. It is a human one.</p>',
-    catTitle: "What do you carry?",
-    cats: ["Purification","Regret","Forgiveness","Farewell","Free"],
-    rTitle: "Share what you've long carried",
-    rSub: "Choose a name. Not your real one. Write what you need. No judgment waits — only quiet eyes reading.",
-    rNick: "Nickname", rEmail: "Email (stays private)", rPass: "Password",
-    rBtn: "Create Account",
-    rNote: 'Your email will never be visible. A confirmation will arrive, then you may share.<br>All posts are reviewed by a moderator before publication.',
-    modTitle: "Become a Moderator / Volunteer Listener",
-    modDesc: "Are you studying psychology, sociology, or working in social services? As a volunteer moderator at Beichtraum, you help people carry their burdens a little lighter.",
-    modRef: '"Volunteer moderators receive an official reference letter from AskMeAI Teknoloji Ltd. Şti."',
-    chips: ["🎓 Psychology Student","👥 Sociology Intern","🤲 Spiritual Counselor","✍️ Social Worker","🌍 Public Relations"],
-    modBtn: "Application Form →",
-    fNote: '© 2026 PACDI · <a href="legal.html" style="color:inherit;opacity:0.7;">Impressum & Datenschutz</a> · All content is moderated · Privacy-friendly'
-  }
+  Object.keys(ids).forEach(function(id){ var el=document.getElementById(id); if(el) el.innerText=ids[id]; });
 };
 
 var currentLang = 'de';
