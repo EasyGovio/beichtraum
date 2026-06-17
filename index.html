@@ -5,21 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beichtraum | Wo Worte zur Ruhe kommen</title>
   <meta name="description" content="Ein Ort zum Loslassen. Anonym, geschützt, mehrsprachig. Teile, was du lange mit dir trägst.">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8426936740213369" crossorigin="anonymous">
-  var _banner = {"de": "“Tränen haben keine Nationalität. Lachen hat keine Religion.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifest lesen →</a>", "tr": "“Gözyaşının milliyeti yok. Kahkahanın dini yok.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifestoyu oku →</a>", "en": "“Tears have no nationality. Laughter has no religion.” <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Read the manifesto →</a>"};
-  var _blogT = {
-    de: ["Aus dem Blog","Persönlicher Essay","Der Geduldstein, zerbrochene Geheimnisse","Lesen →","Anatolische Allegorie","Vier Tore, Ein Garten"],
-    tr: ["Blogdan","Kişisel Yazı","Sabır Taşı, Kırılan Sırlar","Devamı →","Anadolu Alegorisi","Dört Kapı, Bir Bahçe"],
-    en: ["From the Blog","Personal Essay","The Patience Stone, Broken Secrets","Read →","Anatolian Allegory","Four Gates, One Garden"]
-  };
-  function _updateBlog(lang) {
-    var t = _blogT[lang]; if (!t) return;
-    var ids = ["blog-label","blog-cat-1","blog-title-1","blog-read-1","blog-cat-2","blog-title-2","blog-read-2"];
-    // blog-read-2 aynı read değeri
-    var vals = [t[0],t[1],t[2],t[3],t[4],t[5],t[3]];
-    ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.innerText=vals[i];});
-  }
-</script>
+  
   <link rel="canonical" href="https://beichtraum.de/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -323,7 +309,7 @@
     #manifesto-banner a:hover {opacity:0.8;}
   </style>
 </head>
-<body>
+<body class="lang-de" id="body-root">
 
 <nav>
   <a href="#" class="nav-logo">Beichtraum</a>
@@ -333,9 +319,8 @@
     <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
   </div>
 </nav>
+<div id="manifesto-banner" style="background:rgba(155,142,196,0.1);border-bottom:1px solid rgba(155,142,196,0.2);padding:0.5rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.75rem;font-style:italic;color:rgba(255,255,255,0.72);position:relative;z-index:98;"><span id="manifesto-text"></span></div>
 
-<!-- MANIFESTO BANNER -->
-<div id="manifesto-banner" style="background:rgba(155,142,196,0.08);border-bottom:1px solid rgba(155,142,196,0.2);padding:0.55rem 2rem;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:0.78rem;font-style:italic;color:rgba(255,255,255,0.7);position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);"><span id="manifesto-text"></span></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -483,7 +468,21 @@
 </footer>
 
 <script>
-  var _ft = {
+var _banner = {"de": ""Tränen haben keine Nationalität. Lachen hat keine Religion." <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifest lesen →</a>", "tr": ""Gözyaşının milliyeti yok. Kahkahanın dini yok." <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Manifestoyu oku →</a>", "en": ""Tears have no nationality. Laughter has no religion." <a href=\"https://geduldstein.de/blog/neden-olmasin.html\" style=\"color:#9B8EC4;text-decoration:none;font-style:normal;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;margin-left:0.8rem;\">Read the manifesto →</a>"};
+  var _blogT = {
+    de: ["Aus dem Blog","Persönlicher Essay","Der Geduldstein, zerbrochene Geheimnisse","Lesen →","Anatolische Allegorie","Vier Tore, Ein Garten"],
+    tr: ["Blogdan","Kişisel Yazı","Sabır Taşı, Kırılan Sırlar","Devamı →","Anadolu Alegorisi","Dört Kapı, Bir Bahçe"],
+    en: ["From the Blog","Personal Essay","The Patience Stone, Broken Secrets","Read →","Anatolian Allegory","Four Gates, One Garden"]
+  };
+  function _updateBlog(lang) {
+    var t = _blogT[lang]; if (!t) return;
+    var ids = ["blog-label","blog-cat-1","blog-title-1","blog-read-1","blog-cat-2","blog-title-2","blog-read-2"];
+    // blog-read-2 aynı read değeri
+    var vals = [t[0],t[1],t[2],t[3],t[4],t[5],t[3]];
+    ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.innerText=vals[i];});
+  }
+
+var _ft = {
     de: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Impressum &amp; Datenschutz</a> \u00b7 Alle Inhalte werden moderiert · Datenschutzfreundlich",
     tr: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">K\u00fcnye &amp; Gizlilik</a> \u00b7 Tüm içerikler moderatör onayından geçer · Gizlilik dostu",
     en: "\u00a9 2026 PACDI \u00b7 <a href=\\"https://beichtraum.de/legal.html\\" style=\\"color:inherit;opacity:0.7;\\">Imprint &amp; Privacy</a> \u00b7 All content is moderated · Privacy-friendly"
@@ -571,6 +570,8 @@ var _pageT = {
 };
 function setLang(lang) {
   currentLang = lang;
+  var br=document.getElementById("body-root"); if(br) br.className="lang-"+lang;
+  var mt=document.getElementById("manifesto-text"); if(mt) mt.innerHTML=(_banner&&_banner[lang])||"";
   var mt=document.getElementById("manifesto-text"); if(mt&&_banner) mt.innerHTML=_banner[lang]||_banner.de;
   var nb=document.getElementById("nav-back"); if(nb) nb.innerText = _bl[lang]||_bl.de;
     _updateBlog(lang);
