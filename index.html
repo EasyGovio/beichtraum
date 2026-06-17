@@ -5,7 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beichtraum | Wo Worte zur Ruhe kommen</title>
   <meta name="description" content="Ein Ort zum Loslassen. Anonym, geschützt, mehrsprachig. Teile, was du lange mit dir trägst.">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8426936740213369" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8426936740213369" crossorigin="anonymous">
+  var _blogT = {
+    de: ["Aus dem Blog","Persönlicher Essay","Der Geduldstein, zerbrochene Geheimnisse","Lesen →","Anatolische Allegorie","Vier Tore, Ein Garten"],
+    tr: ["Blogdan","Kişisel Yazı","Sabır Taşı, Kırılan Sırlar","Devamı →","Anadolu Alegorisi","Dört Kapı, Bir Bahçe"],
+    en: ["From the Blog","Personal Essay","The Patience Stone, Broken Secrets","Read →","Anatolian Allegory","Four Gates, One Garden"]
+  };
+  function _updateBlog(lang) {
+    var t = _blogT[lang]; if (!t) return;
+    var ids = ["blog-label","blog-cat-1","blog-title-1","blog-read-1","blog-cat-2","blog-title-2","blog-read-2"];
+    // blog-read-2 aynı read değeri
+    var vals = [t[0],t[1],t[2],t[3],t[4],t[5],t[3]];
+    ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.innerText=vals[i];});
+  }
+</script>
   <link rel="canonical" href="https://beichtraum.de/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -358,36 +371,31 @@
 
 <!-- BLOG YAZILARI -->
 <div style="max-width:740px;margin:0 auto;padding:0 2rem 4rem;">
-  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lav);display:block;margin-bottom:1.5rem;" id="blog-label">
-    <span data-lang-inline="de">Aus dem Blog</span><span data-lang-inline="tr">Blogdan</span><span data-lang-inline="en">From the Blog</span>
+  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lav);display:block;margin-bottom:1.5rem;" id="blog-label">Aus dem Blog</span><span data-lang-inline="tr">Blogdan</span><span data-lang-inline="en">From the Blog</span>
   </span>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
 
     <a href="blog/sabir-tasi-kirilan-sirlar.html" style="display:block;background:var(--night2);border:1px solid var(--border);padding:1.5rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--lav)'" onmouseout="this.style.borderColor='var(--border)'">
       <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--lav);margin-bottom:0.6rem;">
-        <span data-lang-inline="de">Persönlicher Essay</span><span data-lang-inline="tr">Kişisel Yazı</span><span data-lang-inline="en">Personal Essay</span>
+        <span id="blog-cat-1">Persönlicher Essay</span>
       </div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--cream);line-height:1.3;margin-bottom:0.8rem;">
-        <span data-lang-inline="de">Der Geduldstein, zerbrochene Geheimnisse</span>
-        <span data-lang-inline="tr">Sabır Taşı, Kırılan Sırlar</span>
-        <span data-lang-inline="en">The Patience Stone, Broken Secrets</span>
+        <span id="blog-title-1">Der Geduldstein, zerbrochene Geheimnisse</span>
       </div>
       <div style="font-size:0.75rem;color:var(--muted);">
-        <span data-lang-inline="de">Lesen →</span><span data-lang-inline="tr">Devamı →</span><span data-lang-inline="en">Read →</span>
+        <span id="blog-read-1">Lesen →</span>
       </div>
     </a>
 
     <a href="blog/dort-kapi-bir-bahce.html" style="display:block;background:var(--night2);border:1px solid var(--border);padding:1.5rem;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--lav)'" onmouseout="this.style.borderColor='var(--border)'">
       <div style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--lav);margin-bottom:0.6rem;">
-        <span data-lang-inline="de">Anatolische Allegorie</span><span data-lang-inline="tr">Anadolu Alegorisi</span><span data-lang-inline="en">Anatolian Allegory</span>
+        <span id="blog-cat-2">Anatolische Allegorie</span>
       </div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--cream);line-height:1.3;margin-bottom:0.8rem;">
-        <span data-lang-inline="de">Vier Tore, Ein Garten</span>
-        <span data-lang-inline="tr">Dört Kapı, Bir Bahçe</span>
-        <span data-lang-inline="en">Four Gates, One Garden</span>
+        <span id="blog-title-2">Vier Tore, Ein Garten</span>
       </div>
       <div style="font-size:0.75rem;color:var(--muted);">
-        <span data-lang-inline="de">Lesen →</span><span data-lang-inline="tr">Devamı →</span><span data-lang-inline="en">Read →</span>
+        <span id="blog-read-2">Lesen →</span>
       </div>
     </a>
 
@@ -544,6 +552,7 @@ var currentLang = 'de';
 
 function setLang(lang) {
   currentLang = lang;
+    _updateBlog(lang);
   var t = T[lang];
   document.getElementById('h-eyebrow').innerText = t.eyebrow;
   document.getElementById('h-title').innerHTML = t.title;
